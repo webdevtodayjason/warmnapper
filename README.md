@@ -9,7 +9,7 @@
 WARMAPPER is a modern WiFi network discovery and mapping tool built with the T3 Stack (TypeScript, Tailwind CSS, and tRPC). It helps security researchers and network administrators visualize and analyze WiFi networks from Wigle WiFi-compatible scans.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/username/WARMAPPER-T3/main/public/warmapper-preview.png" alt="WARMAPPER Preview" width="800">
+  <img src="https://raw.githubusercontent.com/webdevtodayjason/warmnapper/main/public/warmapper-preview.png" alt="WARMAPPER Preview" width="800">
 </p>
 
 ## ✨ Features
@@ -53,8 +53,8 @@ Before you begin, ensure you have the following installed:
 
 ```bash
 # Clone the repository
-git clone https://github.com/username/WARMAPPER-T3.git
-cd WARMAPPER-T3
+git clone https://github.com/webdevtodayjason/warmnapper.git
+cd warmnapper
 
 # Install dependencies
 npm install
@@ -276,10 +276,10 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 📬 Contact
 
-Project Link: [github.com/username/WARMAPPER-T3](https://github.com/username/WARMAPPER-T3)
+Project Link: [github.com/webdevtodayjason/warmnapper](https://github.com/webdevtodayjason/warmnapper)
 
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://github.com/username">Your Name</a>
+  Made with ❤️ by <a href="https://github.com/webdevtodayjason">Jason Brashear</a>
 </p>
