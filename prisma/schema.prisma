@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+  previewFeatures = []
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  // If using Prisma Accelerate:
+  // url       = env("PRISMA_ACCELERATE_URL")
+  // directUrl = env("DATABASE_URL")
+}
+
+model AccessPoint {
+  id              String  @id @default(cuid())
+  MAC             String
+  SSID            String
+  AuthMode        String
+  FirstSeen       String
+  Channel         Int
+  RSSI            Int
+  CurrentLatitude Float
+  CurrentLongitude Float
+  AltitudeMeters  Float
+  AccuracyMeters  Float
+  Type            String
+  
+  // Additional fields for sharing
+  city            String?
+  state           String?
+  uploadedBy      String?
+  sharedPublicly  Boolean @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([CurrentLatitude, CurrentLongitude, SSID])
+}
