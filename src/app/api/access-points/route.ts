@@ -15,11 +15,10 @@ let prismaInitialized = false;
 
 // Create an async initializer function that logs all steps
 const initializePrisma = async () => {
-  // If we already attempted initialization, don't try again
-  if (prismaInitialized) return prisma;
-  
+  // If we already attempted initialization and it succeeded, reuse the client
+  if (prismaInitialized && prisma) return prisma;
+
   console.log('[PRISMA] Starting Prisma client initialization...');
-  prismaInitialized = true;
   
   try {
     // Use dynamic import to avoid initialization issues
@@ -74,11 +73,14 @@ const initializePrisma = async () => {
     await newPrisma.$connect();
     console.log('[PRISMA] Successfully connected to database');
     
-    // Assign to our variable
+    // Assign to our variable and mark initialization successful
     prisma = newPrisma;
+    prismaInitialized = true;
     return prisma;
   } catch (error) {
     console.error('[PRISMA] Error initializing Prisma client:', error);
+    prisma = null;
+    prismaInitialized = false;
     return null;
   }
 };
